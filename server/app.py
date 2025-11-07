@@ -22,12 +22,12 @@ customers = ["bob", "bill", "john", "sarah"]
 # --- Routes section ---
 @app.get("/contract/<int:contract_id>")
 def get_contract(contract_id):
-    """Return contract details by ID or 404 if not found."""
     contract = next((c for c in contracts if c["id"] == contract_id), None)
     if contract:
-        return jsonify(contract), 200
+        # Return only the contract_information string, not the whole JSON
+        return contract["contract_information"], 200
     else:
-        return jsonify({"error": "Contract not found"}), 404
+        return "Contract not found", 404
 
 
 @app.get("/customer/<customer_name>")
