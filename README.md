@@ -147,3 +147,22 @@ Build the following routes:
 - Delete stale branches on GitHub.
 - Remove unnecessary or commented-out code.
 - Update `.gitignore` if needed to exclude sensitive data
+
+
+# This Flask app implements two routes to manage contracts and customers:
+
+- `GET /contract/<id>` → **200 OK** with JSON if contract found, **404 Not Found** otherwise  
+- `GET /customer/<customer_name>` → **204 No Content** if customer exists (sensitive data), **404 Not Found** otherwise  
+
+## How to Run
+```bash
+pipenv install
+pipenv shell
+python server/app.py
+```
+
+### Screenshot
+
+Below is a screenshot showing successful route responses (200, 204, 404):
+
+![App demonstration](screenshot.png)
